@@ -7,10 +7,14 @@
     let
       pkgs = import nixpkgs { system = "x86_64-linux"; };
       python3 = import ./python3.nix { inherit pkgs; };
+      flakeApp = path: { type = "app"; program = path; };
     in {
-      #packages.x86_64-linux.default = python3;
-      apps.x86_64-linux.default = { type = "app"; program = "${python3}/bin/jupyter-notebook"; };
-      apps.x86_64-linux.python3 = { type = "app"; program = "${python3}/bin/python3"; };
-      apps.x86_64-linux.ipython = { type = "app"; program = "${python3}/bin/ipython"; };
+      apps.x86_64-linux.default = flakeApp "${python3}/bin/jupyter-notebook";
+      apps.x86_64-linux.python3 = flakeApp "${python3}/bin/python3";
+      apps.x86_64-linux.ipython = flakeApp "${python3}/bin/ipython";
+      packages.x86_64-linux.docker-image = pkgs.dockerTools.buildImage {
+        name = "jupyter-scanpy";
+        config = { Cmd = [ "${python3}/bin/jupyter-notebook"] ; };
+      };
     };
 }
