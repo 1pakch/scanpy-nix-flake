@@ -20,7 +20,11 @@
             "--ip=0.0.0.0"  # listen on all interfaces instead of loopback in the container
             "--allow-root"  # running as root in docker
             "--no-browser"  # do not attempt to launch a browser
-          ]; 
+            "--notebook-dir=/notebooks"  # top-level dir accessible via the UI
+          ];
+          extraCommands = ''
+            mkdir /notebooks
+          '';
         };
       };
     };
