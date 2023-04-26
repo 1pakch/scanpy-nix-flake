@@ -14,6 +14,7 @@
       apps.x86_64-linux.ipython = flakeApp "${python3}/bin/ipython";
       packages.x86_64-linux.docker-image = pkgs.dockerTools.buildImage {
         name = "jupyter-scanpy";
+        extraCommands = "mkdir -p notebooks";  # without leading slash
         config = {
 	  Cmd = [
             "${python3}/bin/jupyter-notebook"
@@ -22,9 +23,6 @@
             "--no-browser"  # do not attempt to launch a browser
             "--notebook-dir=/notebooks"  # top-level notebooks dir from inside the container
           ];
-          runAsRoot = ''
-            mkdir -p /notebooks
-          '';
         };
       };
     };
