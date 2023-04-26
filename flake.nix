@@ -14,7 +14,14 @@
       apps.x86_64-linux.ipython = flakeApp "${python3}/bin/ipython";
       packages.x86_64-linux.docker-image = pkgs.dockerTools.buildImage {
         name = "jupyter-scanpy";
-        config = { Cmd = [ "${python3}/bin/jupyter-notebook"] ; };
+        config = {
+	  Cmd = [
+            "${python3}/bin/jupyter-notebook"
+            "--ip=0.0.0.0"  # listen on all interfaces instead of loopback in the container
+            "--allow-root"  # running as root in docker
+            "--no-browser"  # do not attempt to launch a browser
+          ]; 
+        };
       };
     };
 }
