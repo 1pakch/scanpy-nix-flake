@@ -17,8 +17,10 @@ packaging [scanpy](https://github.com/scverse/scanpy) and jupyter notebook serve
    ```
 4. Build this flake and start the jupyter notebook server
    ```sh
-   nix run 'github:ilya-kolpakov/scanpy-nix-flake'
+   nix run github:ilya-kolpakov/scanpy-nix-flake -- --notebook-dir=/path/to/notebooks
    ```
+   where `/path/to/notebooks` is the top-level directory to be served via the web UI.
+   Add `--ip=0.0.0.0` if you want to server to be accessible from other machines.
 
 ## Docker image
 
