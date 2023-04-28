@@ -17,6 +17,7 @@
 , numba
 , umap-learn
 , session-info
+, scikit-misc  # used by `scanpy.pp.highly_variable_genes()`
 }:
 
 buildPythonPackage rec {
@@ -46,6 +47,7 @@ buildPythonPackage rec {
     numba
     umap-learn
     session-info
+    scikit-misc
   ];
 
   nativeBuildInputs = [
