@@ -18,6 +18,7 @@
 , umap-learn
 , session-info
 , scikit-misc  # used by `scanpy.pp.highly_variable_genes()`
+, leidenalg  # used by `scanpy.tl.leiden()`
 }:
 
 buildPythonPackage rec {
@@ -48,6 +49,7 @@ buildPythonPackage rec {
     umap-learn
     session-info
     scikit-misc
+    leidenalg
   ];
 
   nativeBuildInputs = [
