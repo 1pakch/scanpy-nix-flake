@@ -15,6 +15,7 @@ buildPythonPackage rec {
     sha256 = "iCEJCUUsyxlwpb36DgINniOTzMEiGIuWyQtNBdFDZg8=";
   };
 
+  # tests rely on torch so it's easier to skip
   doCheck = false;
 }
 
