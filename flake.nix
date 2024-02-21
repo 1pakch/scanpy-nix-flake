@@ -1,7 +1,7 @@
 {
   description = "A Jupyter notebook environment for single cell analysis";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
   };
   outputs = { self, nixpkgs }:
     let
