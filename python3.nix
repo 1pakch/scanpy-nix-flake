@@ -11,7 +11,6 @@ let
     scanpy = callPackage ./scanpy.nix { };
     session-info = callPackage ./session-info.nix { };
     stdlib-list = callPackage ./stdlib-list.nix { };
-    leidenalg = callPackage ./leidenalg.nix { igraph = pkgs.igraph; python-igraph = python3.pkgs.igraph; };
   };
 in (
   python3.withPackages (

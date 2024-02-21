@@ -1,6 +1,7 @@
 { buildPythonPackage
 , fetchPypi
-, setuptools-scm
+, hatchling
+, hatch-vcs
 , packaging
 , anndata
 , matplotlib
@@ -23,12 +24,13 @@
 
 buildPythonPackage rec {
   pname = "scanpy";
-  version = "1.9.3";
-  format = "flit";
+  version = "1.9.8";
+  pyproject = true;
 
+  # TODO check if fetchgit or similar can work (see `anndata.py`)
   src = fetchPypi {
     inherit pname version;
-    sha256 = "3+Zfms2fTBdAB5oJn4n6akS28O917K+FJHrUr4WRRNc=";
+    sha256 = "sha256-KrF5DSuC6tsM+NSH9Gi+rHqPajqP1xEtGumJ+MUqQ1M=";
   };
 
   propagatedBuildInputs = [
@@ -53,7 +55,8 @@ buildPythonPackage rec {
   ];
 
   nativeBuildInputs = [
-    setuptools-scm
+    hatchling
+    hatch-vcs
   ];
 }
 

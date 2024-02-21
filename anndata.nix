@@ -1,25 +1,27 @@
 { buildPythonPackage
 , fetchPypi
-, setuptools-scm
 , packaging
 , umap-learn
 , natsort
 , h5py
 , pandas
 , pytest
+, hatchling
+, hatch-vcs
 }:
 buildPythonPackage rec {
   pname = "anndata";
-  version = "0.9.1";
-  format = "flit";
+  version = "0.10.5";
+  pyproject = true;
 
+  # TODO: check if the below is still true
   # Note that building with `fetchgit` and `fetchFromGitHub` doesn't work
   # because `setuptools_scm` fails to properly infer the version from the
   # repo checkout made by nix. As a result it looks like running the tests
   # is impossible because they are stripped from the wheel served at pypi.
   src = fetchPypi {
     inherit pname version;
-    sha256 = "HyjyxCfmewuZvdKygXF8kqEmYN/SPgaUk5tucz8OssQ=";
+    sha256 = "pV/NdcK0Ra2Ck47NQd4d1Mr2ZUcpDSQjMn4Oifcb9ZA=";
   };
 
   propagatedBuildInputs = [
@@ -31,6 +33,7 @@ buildPythonPackage rec {
   ];
 
   nativeBuildInputs = [
-    setuptools-scm
+    hatchling
+    hatch-vcs
   ];
 }
