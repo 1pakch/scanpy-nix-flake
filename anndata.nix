@@ -1,13 +1,14 @@
 { buildPythonPackage
 , fetchPypi
+, hatchling
+, hatch-vcs
 , packaging
 , umap-learn
 , natsort
 , h5py
 , pandas
+, array-api-compat
 , pytest
-, hatchling
-, hatch-vcs
 }:
 buildPythonPackage rec {
   pname = "anndata";
@@ -29,6 +30,7 @@ buildPythonPackage rec {
     natsort
     h5py
     pandas
+    array-api-compat
     packaging
   ];
 

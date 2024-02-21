@@ -30,7 +30,7 @@ buildPythonPackage rec {
   # TODO check if fetchgit or similar can work (see `anndata.py`)
   src = fetchPypi {
     inherit pname version;
-    sha256 = "sha256-KrF5DSuC6tsM+NSH9Gi+rHqPajqP1xEtGumJ+MUqQ1M=";
+    sha256 = "KrF5DSuC6tsM+NSH9Gi+rHqPajqP1xEtGumJ+MUqQ1M=";
   };
 
   propagatedBuildInputs = [
