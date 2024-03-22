@@ -17,8 +17,7 @@ in (
   python3.withPackages (
     ps: [
       packages.scanpy
-      ps.jupyter
-      ps.ipython
+      ps.ipykernel
     ]
   )
 )
